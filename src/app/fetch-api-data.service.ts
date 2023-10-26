@@ -220,10 +220,23 @@ export class FetchApiDataService {
       ) as Observable<UpdatedUser>;
   }
 
-
+  // Making the API call for the "Delete User" endpoint
+  deleteUser(): Observable<string> {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const token = localStorage.getItem('token');
+    return this.http
+      .delete<string>(apiUrl + 'users/' + user.Username, {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      })
+      .pipe(
+        catchError(this.handleError),
+      ) as Observable<string>;
+}
 
   // Non-typed response extraction
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: any): any {
     const body = res;
     return body || {};
   }
@@ -236,7 +249,7 @@ export class FetchApiDataService {
         `Error Status code ${error.status}, ` +
         `Error body is: ${error.error}`);
     }
-    return throwError(
+    return throwError(() => 
       'Something bad happened; please try again later.');
   }
 }
