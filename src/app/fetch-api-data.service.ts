@@ -51,8 +51,7 @@ interface LoggedInUser {
 }
 
 //Declaring the api url that will provide data for the client app
-// https://myflix765.netlify.app 
-const apiUrl = 'https://myflixapp-765.herokuapp.com/api/';
+const apiUrl = 'https://myflixapp-765.herokuapp.com/';
 @Injectable({
   providedIn: 'root'
 })
