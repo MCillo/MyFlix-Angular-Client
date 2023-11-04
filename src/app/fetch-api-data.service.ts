@@ -51,7 +51,7 @@ interface LoggedInUser {
 }
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
+const apiUrl = 'https://myflixapp-765.herokuapp.com';
 @Injectable({
   providedIn: 'root'
 })
@@ -233,7 +233,7 @@ export class FetchApiDataService {
       .pipe(
         catchError(this.handleError),
       ) as Observable<string>;
-}
+  }
 
   // Non-typed response extraction
   private extractResponseData(res: any): any {
@@ -249,7 +249,7 @@ export class FetchApiDataService {
         `Error Status code ${error.status}, ` +
         `Error body is: ${error.error}`);
     }
-    return throwError(() => 
+    return throwError(() =>
       'Something bad happened; please try again later.');
   }
 }
