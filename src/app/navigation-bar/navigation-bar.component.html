@@ -1,0 +1,22 @@
+<mat-toolbar class="basic-toolbar">
+  <button mat-button (click)="navigateToMoviesPage()" class="nav-title">
+    MyFlix App
+  </button>
+  <span class="spacer"></span>
+  <button
+    mat-icon-button
+    class="profile-icon"
+    aria-label="Profile Icon"
+    (click)="navigateToProfilePage()"
+  >
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="logout-icon"
+    aria-label="Logout Icon"
+    (click)="logoutUser()"
+  >
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
