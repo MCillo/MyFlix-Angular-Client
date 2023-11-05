@@ -175,17 +175,18 @@ export class FetchApiDataService {
   }
 
   // Making the API call to "Add to Favorites" endpoint
-  addToFavorites(movieId: string): Observable<UpdatedUser> {
+    addToFavorites(movieId: string): Observable<UpdatedUser> {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     const token = localStorage.getItem('token');
     user.FavoriteMovies.push(movieId);
     localStorage.setItem('user', JSON.stringify(user));
     return this.http
       .post(
-        apiUrl + 'users/' + user.Username + '/movies/' + movieId, {},
+        apiUrl + 'users/' + user.Username + '/movies/' + movieId,
+        {},
         {
           headers: new HttpHeaders({
-            Authorization: 'Bearer' + token,
+            Authorization: 'Bearer ' + token,
           }),
           responseType: 'text',
         },
