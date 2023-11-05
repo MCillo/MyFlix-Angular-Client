@@ -61,6 +61,13 @@ export class FetchApiDataService {
   constructor(private http: HttpClient) {
   }
 
+ // Making the API call for the "User Login endpoint"
+  public userLogin(userDetails: UserDetail): Observable<LoginResponse> {
+    return this.http
+      .post<LoginResponse>(apiUrl + 'login', userDetails)
+      .pipe(catchError(this.handleError)) as Observable<LoginResponse>;
+  }
+  
   // Making the API call for the "User Registration" endpoint
   public userRegistration(
     userDetails: UserDetail,
@@ -72,6 +79,8 @@ export class FetchApiDataService {
         catchError(this.handleError),
       ) as Observable<UserRegistrationResponse>;
   }
+
+ 
 
   // Making the API Call for the "Get All Movies" endpoint
   getAllMovies(): Observable<Array<Movie>> {
