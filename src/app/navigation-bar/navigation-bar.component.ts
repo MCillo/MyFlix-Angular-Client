@@ -3,6 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { Router } from '@angular/router';
 
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.scss'],
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule],
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatTooltipModule],
 })
   
 export class NavigationBarComponent {
