@@ -13,10 +13,13 @@
     </div>
     <mat-list>
       <mat-list-item *ngFor="let movie of favoriteMovies">
-        <!-- <img matListItemAvatar src="{{ movie.ImagePath }}" /> -->
-        <div matListItemTitle>{{ movie.Title }}</div>
-        <!-- <span matListItemLine>{{ movie.Title }}</span> -->
+        <img matListItemAvatar src="{{ movie.ImagePath }}" />
+        <span matListItemTitle>{{ movie.Title }}</span>
       </mat-list-item>
+      <!-- <mat-list-item *ngFor="let movie of favoriteMovies">
+        <mat-icon matListItemIcon>movie</mat-icon>
+        <span matListItemTitle>{{ movie.Title }} </span>
+      </mat-list-item> -->
     </mat-list>
   </div>
 
@@ -62,11 +65,11 @@
       />
     </mat-form-field>
 
-    <button mat-button color="warn" (click)="deleteUser()">
+    <button mat-raised-button color="warn" (click)="deleteUser()">
       Delete Account
     </button>
     <button mat-raised-button color="primary" (click)="editUser()">
-      Update Account
+      Update
     </button>
   </form>
 </div>
