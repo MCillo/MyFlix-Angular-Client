@@ -25,7 +25,7 @@ export class ProfilePageComponent implements OnInit {
     public fetchApiData: FetchApiDataService,
     public snackBar: MatSnackBar,
     private router: Router,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -48,11 +48,12 @@ export class ProfilePageComponent implements OnInit {
 
       this.user.FavoriteMovies.forEach((movie: any) => {
         this.favoriteMovies.push(movie);
+        console.log(movie);
       });
     });
   }
 
-  
+
   editUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe(
       (data) => {
