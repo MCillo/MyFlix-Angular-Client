@@ -27,7 +27,10 @@ interface LoginResponse {
 interface Movie {
   Title: string;
   Description: string;
-  Genre: Genre;
+  Genre: {
+    Name: string;
+    Description: string;
+  };
   Director: Director;
   ImagePath: string;
   Featured: boolean;
@@ -152,10 +155,12 @@ export class FetchApiDataService {
           Authorization: 'Bearer ' + token,
         }),
       })
+    
       .pipe(map(this.extractResponseData),
         catchError(this.handleError)
       );
   }
+  
 
   // Making the API call for "Get Favorites" endpoint
   getFavorites(): Observable<LoggedInUser> {
