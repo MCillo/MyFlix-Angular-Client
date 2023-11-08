@@ -45,10 +45,8 @@ export class ProfilePageComponent implements OnInit {
         'en-US',
         'UTC+0',
       );
-
       this.user.FavoriteMovies.forEach((movie: any) => {
         this.favoriteMovies.push(movie);
-        console.log(movie);
       });
     });
   }
