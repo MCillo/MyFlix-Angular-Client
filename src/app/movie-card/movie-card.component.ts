@@ -25,10 +25,11 @@ ngOnInit(): void {
 
   getMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
-      this.movies = resp;
-      console.log(this.movies);
+    this.movies = resp;
+    console.log(this.movies);
       return this.movies;
-    });
+  });
+    
   }
 
   getGenre(name: string, description: string): void {
