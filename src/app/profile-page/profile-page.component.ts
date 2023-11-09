@@ -1,3 +1,6 @@
+/**
+ * Profile Page component
+ */
 import { Component, OnInit, Input } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -9,6 +12,10 @@ import { formatDate } from '@angular/common';
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
 })
+  
+  /** 
+ * exporting the Profile Page component to be used in the app
+ */
 export class ProfilePageComponent implements OnInit {
   user: any = {};
 
@@ -31,7 +38,9 @@ export class ProfilePageComponent implements OnInit {
     this.getUser();
   }
 
-
+/**
+ * Gets the user data from the Database using the Get User endpoint from fetch-api-data.service
+ */
   getUser(): void {
     this.fetchApiData.getUser().subscribe((response: any) => {
       this.user = response;
@@ -53,7 +62,9 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
-
+/**
+ * Updates the user data in the Database using the Edit User endpoint from fetch-api-data.service
+ */
   editUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe(
       (data) => {
@@ -73,7 +84,9 @@ export class ProfilePageComponent implements OnInit {
     );
   }
 
-
+/**
+ * Deletes the user data from the Database using the Delete User endpoint from fetch-api-data.service
+ */
   deleteUser(): void {
     if (confirm('are you sure?')) {
       this.router.navigate(['welcome']).then(() => {
