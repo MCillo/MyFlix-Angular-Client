@@ -1,3 +1,7 @@
+/**
+ * User Login component
+ */
+
 // src/app/user-login-form/user-login-form.component.ts
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -18,6 +22,9 @@ import { Router } from '@angular/router';
   templateUrl: './user-login-form.component.html',
   styleUrls: ['./user-login-form.component.scss']
 })
+  /** 
+ * exporting the User Login component to be used in the app
+ */
 export class UserloginFormComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '' };
@@ -32,16 +39,19 @@ export class UserloginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+/**
+   * This is the function responsible for sending the form inputs to the backend
+   */
+
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       (result) => {
         // Logic for a successful user login goes here! (To be implemented)
         this.dialogRef.close(); // This will close the modal on success!
         console.log(result);
-        localStorage.setItem('user', JSON.stringify(result.user));
-        localStorage.setItem('token', result.token);
-        this.router.navigate(['movies']);
+        localStorage.setItem('user', JSON.stringify(result.user)); // sets the username in local storage
+        localStorage.setItem('token', result.token); // sets the user token in local storage
+        this.router.navigate(['movies']); // upon successful login navigates to the movie-card page
         this.snackBar.open('Login successfull ', 'OK', {
           duration: 2000
         });
