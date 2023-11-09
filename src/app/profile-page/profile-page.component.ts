@@ -36,6 +36,7 @@ export class ProfilePageComponent implements OnInit {
     this.fetchApiData.getUser().subscribe((response: any) => {
       this.user = response;
       console.log(this.user);
+      console.log(localStorage);
 
       this.userData.Username = this.user.Username;
       this.userData.Email = this.user.Email;
@@ -47,6 +48,7 @@ export class ProfilePageComponent implements OnInit {
       );
       this.user.FavoriteMovies.forEach((movie: any) => {
         this.favoriteMovies.push(movie);
+        console.log(movie);
       });
     });
   }
